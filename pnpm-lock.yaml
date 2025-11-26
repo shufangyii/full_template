@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@my/api':
+        specifier: workspace:*
+        version: link:apps/api
+      '@my/service':
+        specifier: workspace:*
+        version: link:apps/service
+      '@my/web':
+        specifier: workspace:*
+        version: link:apps/web
     devDependencies:
       '@changesets/cli':
         specifier: ^2.29.7
@@ -120,6 +130,8 @@ importers:
       typescript-eslint:
         specifier: ^8.20.0
         version: 8.48.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
+
+  apps/service: {}
 
   apps/web:
     dependencies:
