@@ -12,7 +12,8 @@
     "changeset:version": "changeset version && node scripts/bump-version.js",
     "commit": "cz",
     "commitlint": "commitlint --edit",
-    "dev": "turbo dev"
+    "dev": "turbo dev",
+    "build": "turbo build"
   },
   "dependencies": {
     "@my/api": "workspace:*",
