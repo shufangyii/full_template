@@ -1,0 +1,9 @@
+{
+  "name": "@my/service",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Proxy package for Rust service versioning",
+  "scripts": {
+    "dev": "cargo run"
+  }
+}
