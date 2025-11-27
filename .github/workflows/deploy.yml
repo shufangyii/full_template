@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - "@my/*@*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to deploy (e.g., @my/meta@1.0.0). Leave empty to deploy current branch."
+        required: false
+        type: string
 
 jobs:
   deploy:
@@ -33,6 +39,11 @@ jobs:
 
       - name: Deploy
         run: |
-          echo "Deploying version ${GITHUB_REF_NAME}..."
+          if [ -n "${{ inputs.tag }}" ]; then
+            VERSION="${{ inputs.tag }}"
+          else
+            VERSION="${GITHUB_REF_NAME}"
+          fi
+          echo "Deploying version ${VERSION}..."
           # Add your actual deployment commands here
           # e.g., docker build, helm upgrade, etc.
