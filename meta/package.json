@@ -1,6 +1,6 @@
 {
   "name": "@my/meta",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "full stack template",
   "private": "true",
   "type": "module",

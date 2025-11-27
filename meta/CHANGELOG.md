@@ -1,5 +1,11 @@
 # @my/meta
 
+## 0.1.0
+
+### Minor Changes
+
+- 33ff3c4: Add custom script to create and push package-specific git tags.
+
 ## 0.0.2
 
 ### Patch Changes
