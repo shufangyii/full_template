@@ -4,6 +4,9 @@
   "private": true,
   "description": "Proxy package for Rust service versioning",
   "scripts": {
-    "dev": "cargo run"
+    "dev": "cargo run",
+    "check": "cargo check",
+    "test": "cargo test",
+    "build": "cargo build --release --verbose"
   }
 }

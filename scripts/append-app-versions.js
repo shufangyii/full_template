@@ -4,16 +4,16 @@ import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, "..");
-const historyPath = join(rootDir, "HISTORY.md");
-const rootPackageJsonPath = join(rootDir, "package.json");
+const metaDir = join(rootDir, "meta");
+const historyPath = join(metaDir, "HISTORY.md");
+const metaPackageJsonPath = join(metaDir, "package.json");
 
 // Apps to track
 const apps = ["apps/api", "apps/service", "apps/web"];
 
 try {
-  // 1. Get Root Version
-  const rootPackageJson = JSON.parse(readFileSync(rootPackageJsonPath, "utf8"));
-  const rootVersion = rootPackageJson.version;
+  const metaPackageJson = JSON.parse(readFileSync(metaPackageJsonPath, "utf8"));
+  const metaVersion = metaPackageJson.version;
 
   // 2. Get App Versions
   const appVersions = apps.map((appPath) => {
@@ -31,7 +31,7 @@ try {
   }
 
   // 4. Construct the entry
-  let entry = `\n## ${rootVersion}\n\n| App | Version |\n| --- | --- |\n`;
+  let entry = `\n## ${metaVersion}\n\n| App | Version |\n| --- | --- |\n`;
   appVersions.forEach(({ name, version }) => {
     entry += `| ${name} | ${version} |\n`;
   });
@@ -46,7 +46,7 @@ try {
 
   writeFileSync(historyPath, newHistory);
   console.log(
-    `Prepended app versions to HISTORY.md for version ${rootVersion}`
+    `Prepended app versions to HISTORY.md for version ${metaVersion}`
   );
 } catch (error) {
   console.error("Error appending app versions:", error);
