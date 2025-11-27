@@ -194,6 +194,18 @@ importers:
         specifier: ^3.1.1
         version: 3.1.5(typescript@5.9.3)
 
+  meta:
+    dependencies:
+      '@my/api':
+        specifier: workspace:*
+        version: link:../apps/api
+      '@my/service':
+        specifier: workspace:*
+        version: link:../apps/service
+      '@my/web':
+        specifier: workspace:*
+        version: link:../apps/web
+
 packages:
 
   '@angular-devkit/core@19.2.17':
