@@ -16,6 +16,8 @@ const packages = [
 
 console.log("🏷️  Creating git tags...");
 
+let newTagsCreated = false;
+
 packages.forEach(({ path, name }) => {
   const pkgPath = join(rootDir, path);
   const pkg = JSON.parse(readFileSync(pkgPath, "utf-8"));
@@ -29,16 +31,21 @@ packages.forEach(({ path, name }) => {
     // Tag doesn't exist, create it
     execSync(`git tag ${tag}`, { stdio: "inherit" });
     console.log(`✅ Created tag: ${tag}`);
+    newTagsCreated = true;
   }
 });
 
-console.log("📤 Pushing tags to remote...");
-try {
-  execSync("git push --follow-tags", { stdio: "inherit" });
-  console.log("✅ Tags pushed successfully!");
-} catch (error) {
-  console.error("❌ Failed to push tags:", error.message);
-  process.exit(1);
+if (newTagsCreated) {
+  console.log("📤 Pushing tags to remote...");
+  try {
+    execSync("git push --tags", { stdio: "inherit" });
+    console.log("✅ Tags pushed successfully!");
+  } catch (error) {
+    console.error("❌ Failed to push tags:", error.message);
+    process.exit(1);
+  }
+} else {
+  console.log("⏭️  No new tags to push");
 }
 
 console.log("✨ Done!");
