@@ -1,5 +1,15 @@
 # @my/meta
 
+## 0.0.2
+
+### Patch Changes
+
+- b5e22d6: test changeset
+- Updated dependencies [b5e22d6]
+  - @my/api@0.0.2
+  - @my/service@0.0.2
+  - @my/web@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

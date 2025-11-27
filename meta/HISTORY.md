@@ -1,5 +1,13 @@
 # History
 
+## 0.0.2
+
+| App | Version |
+| --- | --- |
+| @my/api | 0.0.2 |
+| @my/service | 0.0.2 |
+| @my/web | 0.0.2 |
+
 ## 0.0.1
 
 | App | Version |
