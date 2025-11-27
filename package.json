@@ -18,6 +18,9 @@
     "check": "turbo check",
     "test": "turbo test",
     "dev": "turbo dev",
+    "dev:all": "docker compose up -d && turbo dev",
+    "db:up": "docker compose up -d postgres redis",
+    "db:down": "docker compose down",
     "build": "turbo build"
   },
   "dependencies": {
@@ -42,5 +45,13 @@
     "cz-customizable": {
       "config": "cz.config.cjs"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,json,md}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,vue}": [
+      "eslint --fix"
+    ]
   }
 }
