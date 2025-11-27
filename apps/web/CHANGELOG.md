@@ -1,5 +1,11 @@
 # @my/web
 
+## 0.0.2
+
+### Patch Changes
+
+- b5e22d6: test changeset
+
 ## 0.0.1
 
 ### Patch Changes
