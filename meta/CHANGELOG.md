@@ -1,5 +1,11 @@
 # @my/meta
 
+## 0.1.2
+
+### Patch Changes
+
+- d3851cc: polish workflow
+
 ## 0.1.1
 
 ### Patch Changes
