@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build",
+    "format": "prettier --write src/",
     "lint": "eslint . --fix --cache",
-    "format": "prettier --write src/"
+    "check": "vue-tsc --build",
+    "dev": "vite",
+    "build": "run-p check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build"
   },
   "dependencies": {
     "pinia": "^3.0.3",

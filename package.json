@@ -13,6 +13,10 @@
     "changeset:tag": "node scripts/create-tags.js",
     "commit": "cz",
     "commitlint": "commitlint --edit",
+    "format": "turbo format",
+    "lint": "turbo lint",
+    "check": "turbo check",
+    "test": "turbo test",
     "dev": "turbo dev",
     "build": "turbo build"
   },
