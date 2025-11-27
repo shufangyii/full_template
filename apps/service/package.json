@@ -1,6 +1,6 @@
 {
   "name": "@my/service",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Proxy package for Rust service versioning",
   "scripts": {
