@@ -1,6 +1,6 @@
-import { readFileSync } from "fs";
 import { execSync } from "child_process";
-import { join, dirname } from "path";
+import { readFileSync } from "fs";
+import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -16,6 +16,14 @@ const packages = [
 
 console.log("🏷️  Creating git tags...");
 
+// Fetch tags from remote to check if they already exist
+console.log("📥 Fetching tags from remote...");
+try {
+  execSync("git fetch --tags", { stdio: "inherit" });
+} catch (error) {
+  console.warn("⚠️  Warning: Failed to fetch tags from remote:", error.message);
+}
+
 let newTagsCreated = false;
 
 packages.forEach(({ path, name }) => {
@@ -24,7 +32,7 @@ packages.forEach(({ path, name }) => {
   const tag = `${name}@${pkg.version}`;
 
   try {
-    // Check if tag already exists
+    // Check if tag already exists (locally or remotely)
     execSync(`git rev-parse ${tag}`, { stdio: "ignore" });
     console.log(`⏭️  Tag ${tag} already exists, skipping`);
   } catch {
